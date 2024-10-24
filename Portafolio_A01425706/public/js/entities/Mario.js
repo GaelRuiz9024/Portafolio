@@ -7,6 +7,7 @@ import Solid from '../traits/Solid.js';
 import Stomper from '../traits/Stomper.js';
 import {loadSpriteSheet} from '../loaders.js';
 
+
 const SLOW_DRAG = 1/1000;
 const FAST_DRAG = 1/5000;
 
@@ -42,24 +43,26 @@ function createMarioFactory(sprite) {
         sprite.draw(routeFrame(this), context, 0, 0, this.go.heading < 0);
     }
 
-    return function createMario() {
-        const mario = new Entity();
-        mario.size.set(14, 16);
+    // Dentro de la función que crea Mario, añadir el trait CoinBlockHit
+return function createMario() {
+    const mario = new Entity();
+    mario.size.set(14, 16);
 
-        mario.addTrait(new Physics());
-        mario.addTrait(new Solid());
-        mario.addTrait(new Go());
-        mario.addTrait(new Jump());
-        mario.addTrait(new Killable());
-        mario.addTrait(new Stomper());
+    mario.addTrait(new Physics());
+    mario.addTrait(new Solid());
+    mario.addTrait(new Go());
+    mario.addTrait(new Jump());
+    mario.addTrait(new Killable());
+    mario.addTrait(new Stomper());
+    
 
-        mario.killable.removeAfter = 0;
 
-        mario.turbo = setTurboState;
-        mario.draw = drawMario;
+    mario.killable.removeAfter = 0;
 
-        mario.turbo(false);
+    mario.turbo = setTurboState;
+    mario.draw = drawMario;
 
-        return mario;
-    }
-}
+    mario.turbo(false);
+
+    return mario;
+}}

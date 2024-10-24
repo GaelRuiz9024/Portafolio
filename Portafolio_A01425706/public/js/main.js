@@ -7,6 +7,7 @@ import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers.js';
 
+
 const missions = {
     killTurtle: false,
     killKoopa: false,

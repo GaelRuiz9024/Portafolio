@@ -37,6 +37,7 @@ export class Trait {
     }
 }
 
+
 export default class Entity {
     constructor() {
         this.pos = new Vec2(0, 0);
@@ -67,7 +68,7 @@ export default class Entity {
     }
 
     draw() {
-
+        // Este método dibuja la entidad en el canvas, lo que ya tienes implementado.
     }
 
     finalize() {
@@ -84,3 +85,4 @@ export default class Entity {
         this.lifetime += deltaTime;
     }
 }
+
