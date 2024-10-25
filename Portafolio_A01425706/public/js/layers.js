@@ -71,26 +71,28 @@ export function createCollisionLayer(level) {
     }
 
     return function drawCollision(context, camera) {
-        context.strokeStyle = 'blue';
-        resolvedTiles.forEach(({x, y}) => {
-            context.beginPath();
-            context.rect(
-                x * tileSize - camera.pos.x,
-                y * tileSize - camera.pos.y,
-                tileSize, tileSize);
-            context.stroke();
-        });
+        // Desactivamos el dibujo de los rectángulos azules alrededor de las tiles.
+        // context.strokeStyle = 'blue';
+        // resolvedTiles.forEach(({x, y}) => {
+        //     context.beginPath();
+        //     context.rect(
+        //         x * tileSize - camera.pos.x,
+        //         y * tileSize - camera.pos.y,
+        //         tileSize, tileSize);
+        //     context.stroke();  // <--- Esta línea dibuja los rectángulos azules
+        // });
 
-        context.strokeStyle = 'red';
-        level.entities.forEach(entity => {
-            context.beginPath();
-            context.rect(
-                entity.bounds.left - camera.pos.x,
-                entity.bounds.top - camera.pos.y,
-                entity.size.x,
-                entity.size.y);
-            context.stroke();
-        });
+        // Desactivamos el dibujo de los rectángulos rojos alrededor de las entidades.
+        // context.strokeStyle = 'red';
+        // level.entities.forEach(entity => {
+        //     context.beginPath();
+        //     context.rect(
+        //         entity.bounds.left - camera.pos.x,
+        //         entity.bounds.top - camera.pos.y,
+        //         entity.size.x,
+        //         entity.size.y);
+        //     context.stroke();  // <--- Esta línea dibuja los rectángulos rojos
+        // });
 
         resolvedTiles.length = 0;
     };
@@ -98,13 +100,14 @@ export function createCollisionLayer(level) {
 
 export function createCameraLayer(cameraToDraw) {
     return function drawCameraRect(context, fromCamera) {
-        context.strokeStyle = 'purple';
-        context.beginPath();
-        context.rect(
-            cameraToDraw.pos.x - fromCamera.pos.x,
-            cameraToDraw.pos.y - fromCamera.pos.y,
-            cameraToDraw.size.x,
-            cameraToDraw.size.y);
-        context.stroke();
+        // Desactivamos el dibujo de los rectángulos verdes de la cámara.
+        // context.strokeStyle = 'green';
+        // context.beginPath();
+        // context.rect(
+        //     cameraToDraw.pos.x - fromCamera.pos.x,
+        //     cameraToDraw.pos.y - fromCamera.pos.y,
+        //     cameraToDraw.size.x,
+        //     cameraToDraw.size.y);
+        // context.stroke();  // <--- Esta línea dibuja los rectángulos verdes (para la cámara)
     };
 }

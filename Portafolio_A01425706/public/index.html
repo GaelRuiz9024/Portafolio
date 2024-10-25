@@ -6,65 +6,119 @@
         body {
             background: #000;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
 
-        #screen {
-            display: block;
-            image-rendering: pixelated;
+        #arcade {
+            position: relative;
+            width: 100vw;
             height: 100vh;
-            margin: auto;
+            background-image: url('./img/arcade.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .card-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1000;
+
+       /* Canvas principal */
+#screen {
+    width: 45vw; /* Ajusta el ancho del canvas */
+    height: auto; /* Mantiene la relación de aspecto */
+    max-height: 70vh; /* Limita la altura para que no se salga de la pantalla del arcade */
+    image-rendering: pixelated; /* Asegura que los píxeles se vean nítidos */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Sombras para simular pantalla del arcade */
+    border: none; /* Elimina cualquier borde del canvas */
+    outline: none; /* Elimina cualquier contorno del canvas */
 }
 
+/* Contenedor de las tarjetas */
+.card-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;  /* Cerca de la esquina derecha */
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+/* Estilos generales de las tarjetas */
 .card {
+    position: relative;
+    width: 250px;  /* Ajustamos el ancho para que no sea tan grande */
+    padding: 20px;
+    background-color: #000;  /* Fondo negro */
+    color: #00ffcc;  /* Texto neón verde-azulado */
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #ff00ff, 0 0 45px #ff00ff; /* Efecto neón */
+    z-index: 1000;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive; /* Fuente de estilo arcade */
+    text-align: center; /* Centrar contenido */
+}
+
+/* Estilo del botón de cerrar */
+.card .close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 250px;
-    padding: 20px;
-    background-color: white; /* Fondo blanco */
-    color: black; /* Texto oscuro */
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    transition: top 0.3s ease;
-}
-
-.close-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: transparent;
+    background: none;
     border: none;
-    color: black;
-    font-size: 16px;
+    font-size: 20px;
+    color: #ff00ff; /* Color neón púrpura */
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-.repo-link {
-    display: block;
-    margin-top: 10px;
-    color: #007bff; /* Color azul para el enlace */
+.card .close-btn:hover {
+    color: #00ffcc; /* Cambio de color al pasar el cursor */
+}
+
+/* Enlace a repositorio */
+.card .repo-link {
+    color: #ff00ff;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 14px;
 }
 
-.repo-link:hover {
+.card .repo-link:hover {
+    color: #00ffcc; /* Cambio de color al pasar el cursor */
     text-decoration: underline;
 }
 
+/* Efecto de resplandor al abrir */
+.card-container .card {
+    animation: neon-glow 0.5s ease-in-out;
+}
+
+@keyframes neon-glow {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+        box-shadow: none;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 15px #00ffcc, 0 0 30px #ff00ff, 0 0 45px #ff00ff; /* Neón completo */
+    }
+}
 
     </style>
-    <script type="module" src="/js/main.js"></script>
 </head>
 <body>
-    <canvas id="screen" width="256" height="240"></canvas>
-    <div class="card-container"></div>
+    <div id="arcade">
+        <canvas id="screen" width="256" height="240"></canvas>
+    </div>
+    <div class="card-container">
 
+    </div>
+    <script type="module" src="/js/main.js"></script>
 </body>
 </html>

@@ -7,7 +7,6 @@ import {loadEntities} from './entities.js';
 import {setupKeyboard} from './input.js';
 import {createCollisionLayer} from './layers.js';
 
-
 const missions = {
     killTurtle: false,
     killKoopa: false,
@@ -21,11 +20,10 @@ export function checkMissionCompletion() {
     }
 }
 
-// Variables para llevar la cuenta de cuántas tarjetas hay apiladas
 let cardCount = 0;
-const maxCards = 3; // Limitar a un máximo de 3 tarjetas visibles
+const maxCards = 3;
 
-export function showCard(message,repoLink ) {
+export function showCard(message, repoLink) {
     const cardContainer = document.querySelector('.card-container');
     
     if (!cardContainer) {
@@ -33,7 +31,6 @@ export function showCard(message,repoLink ) {
         return;
     }
 
-    // Limitar el número de tarjetas apiladas
     if (cardCount >= maxCards) {
         console.log('Ya hay demasiadas tarjetas visibles.');
         return;
@@ -42,7 +39,6 @@ export function showCard(message,repoLink ) {
     const card = document.createElement('div');
     card.classList.add('card');
 
-    // Añadimos contenido a la tarjeta
     card.innerHTML = `
         <button class="close-btn">&times;</button>
         <h2>¡Felicidades!</h2>
@@ -50,44 +46,29 @@ export function showCard(message,repoLink ) {
         <a href="${repoLink}" class="repo-link" target="_blank">Ver repositorio</a>
     `;
 
-    // Ajustamos la posición de la tarjeta (esquina superior derecha y apilado)
-    card.style.position = 'absolute';
-    card.style.top = `${10 + cardCount * 110}px`;  // Ajustar para apilar tarjetas
-    card.style.right = '10px';
-    card.style.width = '250px';
-    card.style.padding = '20px';
-    card.style.backgroundColor = 'white'; // Fondo blanco
-    card.style.color = 'black'; // Texto oscuro
-    card.style.borderRadius = '12px'; // Bordes redondeados
-    card.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
-    card.style.zIndex = '1000';
+    card.style.top = `${10 + cardCount * 40}px`;
 
-    // Incrementar el contador de tarjetas apiladas
     cardCount++;
 
-    // Añadimos el evento al botón de cerrar
     const closeButton = card.querySelector('.close-btn');
     closeButton.addEventListener('click', () => {
         cardContainer.removeChild(card);
-        cardCount--; // Disminuir el contador de tarjetas
-        repositionCards(); // Reposicionar las tarjetas restantes
+        cardCount--;
+        repositionCards();
     });
 
-    // Agregamos la tarjeta al contenedor
     cardContainer.appendChild(card);
 }
 
-// Función para reposicionar las tarjetas después de cerrar una
 function repositionCards() {
     const cards = document.querySelectorAll('.card');
     let index = 0;
     cards.forEach(card => {
-        card.style.top = `${10 + index * 110}px`; // Reposicionar cada tarjeta
+        card.style.top = `${10 + index * 40}px`;
         index++;
     });
 }
 
-// Añadir el contenedor de tarjetas al body si no existe
 window.addEventListener('DOMContentLoaded', () => {
     if (!document.querySelector('.card-container')) {
         const cardContainer = document.createElement('div');
@@ -95,9 +76,6 @@ window.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(cardContainer);
     }
 });
-
-
-
 
 function createPlayerEnv(playerEntity) {
     const playerEnv = new Entity();
@@ -123,20 +101,19 @@ async function main(canvas) {
     const playerEnv = createPlayerEnv(mario);
     level.entities.add(playerEnv);
 
-
     level.comp.layers.push(createCollisionLayer(level));
 
     const input = setupKeyboard(mario);
     input.listenTo(window);
 
-    const timer = new Timer(1/60);
+    const timer = new Timer(1 / 60);
     timer.update = function update(deltaTime) {
         level.update(deltaTime);
 
         camera.pos.x = Math.max(0, mario.pos.x - 100);
 
         level.comp.draw(context, camera);
-    }
+    };
 
     timer.start();
 }
