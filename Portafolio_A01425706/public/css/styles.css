@@ -1,0 +1,130 @@
+
+body {
+    background-color: black;
+    color: #00ffcc;
+    font-family: 'Press Start 2P', cursive; /* Fuente estilo arcade */
+    text-align: center;
+}
+
+.about-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; /* Para asegurar que la foto y el texto estén en fila */
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.photo {
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.profile-pic {
+    width: 150px; /* Ajusta el tamaño según tu preferencia */
+    height: 150px; /* Mantén proporciones cuadradas */
+    border-radius: 50%; /* Para darle forma redonda */
+    border: 4px solid #00ffcc; /* Borde decorativo */
+    object-fit: cover; /* Para que la imagen no se deforme */
+}
+
+.description {
+    text-align: justify;
+    max-width: 600px; /* Limita el ancho del texto */
+    font-size: 1.2rem;
+}
+
+
+button {
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #000;
+    color: #ff00ff;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff00ff;
+    color: #000;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ff00ff;
+    text-shadow: 2px 2px #00ffcc;
+}
+
+/* Botón de regreso en la esquina superior derecha */
+.back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #ff00ff;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #ff00ff;
+    color: #000;
+}
+
+body {
+    background-color: black;
+    color: #00ffcc;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.arcade-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ff00ff;
+    text-shadow: 2px 2px #00ffcc;
+}
+
+.instructions-text {
+    text-align: justify;
+    max-width: 800px;
+    margin: 20px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+button {
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: #000;
+    color: #ff00ff;
+    border: 2px solid #00ffcc;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff00ff;
+    color: #000;
+}

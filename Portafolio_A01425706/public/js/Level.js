@@ -67,7 +67,7 @@ export default class Level {
 
     endLevel() {
         console.log('¡Nivel completado!');
-        showCard("Nivel completado", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        showCard("Nivel completado", "https://github.com/GaelRuiz9024/Juego-Capibara");
         // Aquí puedes manejar la lógica para el final del nivel, como transiciones o mostrar una pantalla de victoria.
     }
 }

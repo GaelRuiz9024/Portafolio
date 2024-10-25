@@ -29,7 +29,7 @@ class Behavior extends Trait {
                 us.pendulumMove.speed = 0;
 
                 // Mostrar tarjeta cuando Goomba es eliminado
-                showCard("Has matado al Goomba", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                showCard("Has matado al Goomba", "https://github.com/GaelRuiz9024/Computer-Vision");
                 checkMissionCompletion();  // Verificar si todas las misiones están completas
             } else {
                 them.killable.kill();

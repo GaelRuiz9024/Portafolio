@@ -60,7 +60,7 @@ class Behavior extends Trait {
     handleStomp(us, them) {
         if (this.state === STATE_WALKING) {
             this.hide(us);
-            showCard("Has matado al Koopa", "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            showCard("Has matado al Koopa", "https://github.com/angel3mivC/TC1001S_proyecto");
             checkMissionCompletion();  // Verificar si todas las misiones están completas
         } else if (this.state === STATE_HIDING) {
             us.killable.kill();
