@@ -26,8 +26,10 @@ app.get('/instructions', (req, res) => {
 app.get('/game', (req, res) => {
     res.render('game'); // Vista para instrucciones
 });
+//Cambia '10.49.x.x' por la IP que deseas utilizar
+const IP = '10.49.x.x'; 
+const PORT = 3000;
 
-// Escucha en el puerto 3000
-app.listen(3000, () => {
-    console.log('Servidor iniciado en http://localhost:3000');
+app.listen(PORT, IP, () => {
+    console.log(`Server running at http://${IP}:${PORT}`);
 });
